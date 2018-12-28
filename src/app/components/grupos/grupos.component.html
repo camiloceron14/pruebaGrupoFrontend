@@ -1,0 +1,58 @@
+<style>
+  .label-content{
+    font-size: 1rem;
+    color: #000000;
+  }
+  .select-grupos{
+    border: 1px solid #dacfcf;
+    display: -webkit-box;
+  }
+  .h2-title{
+    color:#246aa2;
+    font-size: 1.5rem;
+  }
+  .h4-title{
+    font-size: 1.2rem;
+  }
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <div class="card-title">
+        <h2 class="h2-title">TITULAR</h2>
+        <h4 class="h4-title">Información de Vivienda</h4>
+      </div>
+      <div class="card-content">
+        <div class="row">
+
+            <div class="col s12">
+
+              <div class="col s4">      
+                <label class="label-content" for="selectDep">Departamento</label>
+                <select id="selectDep" name="selectDep" #selectDep="ngModel" [(ngModel)]="grupoService.codigoDepartamentoSelected" (change)="selectProvincias()" class="select-grupos">
+                  <option value="0" disabled>Seleccionar</option>
+                  <option [value]="dep.codigo" *ngFor="let dep of grupoService.departamentos">{{dep.nombre}}</option>
+                </select>
+              </div>
+        
+              <div class="col s4">
+                <label class="label-content" for="selectProv">Provincia</label>
+                <select id="selectProv" name="selectProv" #selectProv="ngModel" [(ngModel)]="grupoService.codigoProvinciaSelected" (change)="selectDistritos()" class="select-grupos">
+                  <option value="0" disabled>Seleccionar</option>
+                  <option [value]="prov.codigo" *ngFor="let prov of grupoService.provincias">{{prov.nombre}}</option>
+                </select>
+              </div>
+        
+              <div class="col s3">
+                <label class="label-content" for="selectDist">Distrito</label>
+                <select id="selectDist" name="selectDist" #selectDist="ngModel" [(ngModel)]="grupoService.codigoDistritoSelected" class="select-grupos">
+                  <option value="0" disabled>Seleccionar</option>
+                  <option [value]="dist.codigo" *ngFor="let dist of grupoService.distritos">{{dist.nombre}}</option>
+                </select>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
